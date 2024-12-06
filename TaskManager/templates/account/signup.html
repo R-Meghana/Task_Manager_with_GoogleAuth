@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Task Manager{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center" >
+    <div class="col-md-6">
+        <div class="card" >
+            <div class="card-header text-center">
+                <h4>Create a New Account</h4>
+            </div>
+            <div class="card-body" style="height: 300px; padding: 10px;">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group row" style="margin-bottom: 5px;">
+                            <label for="{{ field.id_for_label }}" class="col-sm-4 col-form-label text-right" style="font-size: 14px; font-weight: bold;">
+                                {{ field.label }}
+                                {% if field.field.required %}
+                                    <span class="text-danger">*</span>
+                                {% endif %}
+                            </label>
+                            <div class="col-sm-8">
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted" style="font-size: 8px;" >{{ field.help_text }}</small>
+                                {% endif %}
+                                {% if field.errors %}
+                                    <small class="text-danger">{{ field.errors|striptags }}</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group" style="margin-top: 0">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="text-center" style="margin-top: 1px;">
+                    <a href="{% url 'account_login' %}" class="btn btn-link">
+                        Already Registered? Login here
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

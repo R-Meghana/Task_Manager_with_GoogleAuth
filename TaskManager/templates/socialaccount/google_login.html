@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+
+{% block title %}Sign In with Google - Task Manager{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Sign In with Google</h4>
+            </div>
+            <div class="card-body" style="height: 400px; padding: 20px;">
+                <p class="text-center">You are about to sign in using a third-party account from Google.</p>
+                
+                <!-- Use Allauth’s built-in link for Google login -->
+                <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-block">
+                    <i class="fab fa-google"></i> Sign in with Google
+                </a>
+
+                <hr>
+
+                <div class="text-center">
+                    <a href="{% url 'account_login' %}" class="btn btn-link">Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
