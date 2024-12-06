@@ -108,10 +108,6 @@ The system ensures smooth user registration through an invite-only system. Users
 - Database: SQLite (default for development, can be switched to PostgreSQL for production)
 - Email: SMTP (Gmail configured in settings for sending invitation emails)
 
- Contribution
-
-Feel free to fork the repository, make changes, and submit pull requests. For any bugs or feature requests, please create an issue in the GitHub repository.
-
 ---
 
  Conclusion
