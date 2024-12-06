@@ -77,9 +77,21 @@ The system ensures smooth user registration through an invite-only system. Users
 5. Create the .env File
    Create a `.env` file to store sensitive data (e.g., secret keys, email credentials) and fill it out:
    ```text
+   # common settings
+
    SECRET_KEY=your_secret_key
+   DEBUG=True
+   ALLOWED_HOSTS="127.0.0.1,localhost"
+   # email credentials
+   EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+   EMAIL_HOST=smtp.gmail.com
+   EMAIL_PORT=587
    EMAIL_HOST_USER=your_email
    EMAIL_HOST_PASSWORD=your_email_password
+   # Google api credentials
+   GOOGLE_CLIENT_ID="your_google_clientid"
+   GOOGLE_CLIENT_SECRET="your_google_client_secretkey"
+
    ```
 
 6. Start the Development Server
